@@ -1,0 +1,27 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Employee
+  link(rel='stylesheet' href='../libs/css/bootstrap.css')
+form.row.g-3(style='margin-left: 20px; margin-right: 20px;' action='/api/regemployee' name='employeeform' method='POST')
+  h2(style='color: rgb(0, 85, 255);') Employee Form
+  .col-md-6
+    label.form-label(for='firstname') First Name
+    input#firstname.form-control(type='text' name='firstname')
+  .col-md-6
+    label.form-label(for='lastname') Last Name
+    input#lastname.form-control(type='text' name='lastname')
+  .col-md-6
+    label.form-label(for='age') Age
+    input#age.form-control(type='number' name='age')
+  .col-md-6
+    label.form-label(for='email') Email
+    input#email.form-control(type='email' name='email')
+  .col-12
+    label.form-label(for='telephone') Telephone
+    input#telephone.form-control(type='tel' name='telephone')
+  .col-md-6
+    button.btn.btn-primary(type='submit' name='submit') Register
+script(src='../libs/js/bootstrap.bundle.min.js')

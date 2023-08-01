@@ -1,0 +1,57 @@
+doctype html 
+html(lang="en")
+    head 
+        title Hello World 
+        link(rel="stylesheet" href="/css/styles.css")
+    body 
+        h1 How are you?
+        .remark
+            p Pug works 
+        //- #home.services
+        ol#shopping.groceries 
+            li Mango 
+            li Orange 
+            li Grapes 
+            li Apple
+        div.connect
+            p 
+                a(href="www.google.com") Google
+            img.image(src="", alt="", width="", height="")
+
+        form(action="post", method="", name="form")
+            label(for="email") Email 
+            input#email(type="email", name="email")
+            label(for="username") Username
+            input#username(type="text", name="username")
+            label(for="password") Password
+            input#password(type="password", name="password")
+            //- only the id and class can be outside the parentheses when working on inputs
+
+        //- creating two paragraphs on 2 different lines
+        p 
+            | name 
+            | address
+
+        - const pi = 3.14 //- unbuffered code 
+
+        //- Buffered code
+        p=" 2 to the power of 10 is:" + 2**10
+
+        //- String interpolation
+        - let name = "Mugarura Edwin"
+        p Hello #{name}
+        p Hey #{name}
+
+        - const employees = ['Angella','John','Doe','Simon','Peter','Judas'];
+
+        ul 
+            //- length checks for if there are any employees in the array
+            if employees.length 
+                each employee in employees 
+                    li=employee
+            else 
+                li= "There are no employees registered"
+                //- or li There are no employees registered
+        img(src='/images/park.jpg' height='500px')
+        script(src='/js/validate.js') 
+        
