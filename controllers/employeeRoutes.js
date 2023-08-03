@@ -8,6 +8,8 @@ router.get('/employeeform',(req,res) => {
     res.render('employee.pug');
 });
 
+
+
 // we add async to make this an aynchronous operation to avoid delays
 router.post('/regemployee', async (req,res) => {
     try{
@@ -21,7 +23,24 @@ router.post('/regemployee', async (req,res) => {
         res.status(400).render('employee.pug'); // pug file
         console.log(error);
     }
+
 });
+  
+  // returning db data in table format
+  router.get('/list', async (req,res) =>{
+    // async operation becasue we are having a db operation taking place
+    try{
+        let items = await Employee.find();// get everything - sql equivalent to SELECT * FROM employees // items stores the items retrieved
+        res.render('employeelist',{employees: items});
+    }
+    catch(error){
+        console.log(error);
+        return res.status(400).send({message: "Sorry, couldn't retrieve employees"}); // whatever you put afetr the return is usually not read in your function 
+    }
+});
+
+
+
 
 
 module.exports = router
