@@ -4,6 +4,12 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Document
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9' crossorigin='anonymous')
+
+  h1 The sum of all ages of female employees is: #{empAges}
+  h1 The number of female employees is: #{femTotal}
+  h1 The number of all employees is: #{empTotal}
+  h1 The sum of ages of all employees is: #{ageTotal}
+  //- h1 The number of females is: #{genderCount}
 table.table
   thead.table-dark 
 
@@ -13,6 +19,9 @@ table.table
       th(scope='col') Age
       th(scope='col') Email
       th(scope='col') Telephone
+      th(scope='col') Gender
+      th(scope='col') Delete
+
   tbody
   if employees.length
     each employee in employees
@@ -22,5 +31,18 @@ table.table
         td  #{employee.age}
         td  #{employee.email}
         td  #{employee.telephone}
+        td  #{employee.gender}
+        td 
+            form(action="/api/employee/delete" method="POST") 
+                //- parsing parameter from backend to frontend
+                //- hidden is because we don't want it to show up
+                //- name=[name] must match what we put in req.body.[name]
+                input(type="hidden" name="id" value = employee._id)  
+                button.btn.btn-danger(type='submit' onclick='return Confirm(event)') Delete 
+        td 
+            a.btn.btn-warning(href="/api/employee/edit/"+employee._id) Edit
+            //- a(href=`/api/employee/edit/${employee._id}`)
   else 
     p There are no employees in the database
+
+script(src='../js/delete.js')

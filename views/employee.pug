@@ -22,6 +22,13 @@ form.row.g-3(style='margin-left: 20px; margin-right: 20px;' action='/api/regempl
   .col-12
     label.form-label(for='telephone') Telephone
     input#telephone.form-control(type='tel' name='telephone')
+  .col-md-12
+      label(for='gender') Select Gender:
+      select(id='gender', name='gender')
+        option(value='male') Male
+        option(value='female') Female
+        option(value='other') Other
+
   .col-md-6
     button.btn.btn-primary(type='submit' name='submit') Register
 script(src='../libs/js/bootstrap.bundle.min.js')

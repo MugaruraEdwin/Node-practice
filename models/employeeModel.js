@@ -30,6 +30,11 @@ const EmployeeSchema = new mongoose.Schema({
         unique:true,
         trim:true,
         required:true
+    },
+    gender:{
+        type:String,
+        trim:true,
+        required:true
     }
 
 }) 
